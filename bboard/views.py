@@ -7,13 +7,27 @@ from bboard.forms import BbForm
 from bboard.models import Bb, Rubric
 
 
+
+def home(request):
+    return render(request, "accounts/home.html")
+
+
+def login_page(request):
+    return render(request, "accounts/login.html")
+
+
+
 class BbCreateView(CreateView):
     template_name = 'create.html'
     form_class = BbForm
     success_url = '/'
 
     def get_context_data(self, **kwargs):
-        context = super
+        context = super().get_context_data(**kwargs)
+        context['rubrics'] = Rubric.objects.all()
+        return context
+
+
 def index(request):
     template = loader.get_template('index.html')
     bbs = Bb.objects.all()
