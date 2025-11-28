@@ -1,26 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from bboard.forms import BbForm
 from bboard.models import Bb, Rubric
 
 
-
-def home(request):
-    return render(request, "accounts/home.html")
-
-
-def login_page(request):
-    return render(request, "accounts/login.html")
-
-
-
 class BbCreateView(CreateView):
     template_name = 'create.html'
     form_class = BbForm
-    success_url = '/'
+    # success_url = '/'
+    success_url = reverse_lazy('index')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

@@ -16,9 +16,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'shop',
 
     'bboard',   # твое существующее приложение
-    'accounts', # добавляем наше приложение с страницами
+    # 'accounts', # добавляем наше приложение с страницами
 ]
 
 # 🔹 Middleware
