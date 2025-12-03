@@ -3,24 +3,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title  %}Главная{% endblock %} :: Доска обьявлений</title>
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="{% static 'style.css' %}">
 </head>
 <body>
-    <header>
-        <h1>Обьявления</h1>
-    </header>
-    <nav>
-        <a href="{% url 'index' %}">Главная</a>
-        <a href="{% url 'add' %}"> Добавить </a>
-        {%  for rubric in rubrics  %}
-                 <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
-        {% endfor %}
-    </nav>
 
-    <section>
-        {% block content %}
-        {% endblock %}
-    </section>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
+    <a class="navbar-brand" href="{% url 'home' %}">Главная</a>
+
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Логин</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container mt-4">
+    {% block content %}{% endblock %}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -11,6 +11,12 @@ nav {
     float: left;
 }
 
+
+img {
+  width: 500px;
+  height: auto;
+}
+
 nav a {
     display: block;
     margin: 10px 0;
@@ -19,3 +25,21 @@ nav a {
 section {
     margin-left: 170px;
 }
+
+
+
+.navbar a {
+    color: #333; /* темный текст */
+}
+.navbar a:hover {
+    color: #007bff; /* цвет при наведении */
+}
+
+.navbar a {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+
+

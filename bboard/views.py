@@ -6,7 +6,13 @@ from django.views.generic import CreateView
 
 from bboard.forms import BbForm
 from bboard.models import Bb, Rubric
+from django.shortcuts import render
 
+def home_page(request):
+    return render(request, 'layout/home.html')
+
+def login_page(request):
+    return render(request, 'layout/login.html')
 
 class BbCreateView(CreateView):
     template_name = 'create.html'
@@ -38,3 +44,4 @@ def by_rubric(request, rubric_id):
         'current_rubric': current_rubric
     }
     return render(request, 'board.html', context)
+
